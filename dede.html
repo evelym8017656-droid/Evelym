@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4CAF50, #2e7d32);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            color: black;
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 350px;
+            margin: auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .imagem {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        h1 {
+            margin-top: 15px;
+            font-size: 22px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .botao {
+            margin-top: 20px;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            background: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background: #388e3c;
+        }
+
+        .mensagem {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+
+            <!-- SUA FOTO -->
+            <img src="foto.jpg" alt="Foto do usuário" class="imagem">
+
+            <h1>Bem-vindo ao App</h1>
+            <p>Clique no botão abaixo para resgatar sua oferta especial</p>
+
+            <button class="botao" onclick="resgatar()">Resgatar Oferta</button>
+
+            <div class="mensagem" id="msg">
+                🎉 Oferta resgatada com sucesso!
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function resgatar() {
+            document.getElementById("msg").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
