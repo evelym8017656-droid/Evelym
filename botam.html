@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Tipos de Sistemas Operacionais</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: linear-gradient(to right, #ffe4ec, #ffffff);
+    }
+
+    .topo {
+        background-color: #ff69b4;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .card {
+        background-color: #fff;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    .desktop { border-left: 8px solid #ff69b4; }
+    .mobile { border-left: 8px solid #ff85c1; }
+    .servidor { border-left: 8px solid #ff4da6; }
+    .embarcado { border-left: 8px solid #ff99cc; }
+
+    .btn {
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    .btn:hover {
+        background-color: #ff4da6;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="topo">
+    📁 Aula - Sistemas Operacionais
+</div>
+
+<div style="text-align:center;">
+    <button class="btn" onclick="ativarEdicao()">✏️ Editar página</button>
+    <button class="btn" onclick="salvar()">💾 Salvar texto</button>
+</div>
+
+<div class="container" id="conteudo">
+
+    <div class="card desktop">
+        <h2>💻 Desktop</h2>
+        <p><strong>Ex:</strong> Windows</p>
+        <p>👉 Usado em computadores pessoais</p>
+        <p>👉 Foco: usuário final</p>
+    </div>
+
+    <div class="card mobile">
+        <h2>📱 Mobile</h2>
+        <p><strong>Ex:</strong> Android</p>
+        <p>👉 Smartphones</p>
+        <p>👉 Foco: apps + mobilidade</p>
+    </div>
+
+    <div class="card servidor">
+        <h2>🌐 Servidores</h2>
+        <p>👉 Computadores que “servem” outros</p>
+        <p>👉 Hospedam sites</p>
+    </div>
+
+    <div class="card embarcado">
+        <h2>🤖 Embarcados</h2>
+        <p>👉 Estão dentro de dispositivos</p>
+        <p>👉 Ex: TV, carro, micro-ondas</p>
+    </div>
+
+</div>
+
+<div style="text-align:center;">
+    <a href="aula.html">
+        <button class="btn">Ir para Aula 2</button>
+    </a>
+</div>
+
+<script>
+function ativarEdicao() {
+    document.getElementById("conteudo").contentEditable = true;
+    alert("Modo edição ativado! Agora você pode editar o texto.");
+}
+
+function salvar() {
+    alert("Copie o conteúdo editado e cole no seu código HTML!");
+}
+</script>
+
+</body>
+</html>
