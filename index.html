@@ -37,7 +37,6 @@
         transform: scale(1.02);
     }
 
-    /* cores diferentes por matéria */
     .mat { border-left: 8px solid #ff69b4; }
     .hum { border-left: 8px solid #ff85c1; }
     .tec { border-left: 8px solid #ff4da6; }
@@ -73,73 +72,23 @@
 
 <div class="container" id="conteudo">
 
-    <div class="card exatas">
-        <h2>📐 Matemática</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>📜 História</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>🌱 Projeto de Vida</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>🇺🇸 Inglês</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>📖 Português</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>🌍 Geografia</h2>
-    </div>
-
-    <div class="card bio">
-        <h2>🧪 Práticas Experimentais</h2>
-    </div>
-
-    <div class="card bio">
-        <h2>🧬 Biologia</h2>
-    </div>
-
-    <div class="card tec">
-        <h2>💻 Sistemas Operacionais</h2>
-    </div>
-
-    <div class="card tec">
-        <h2>🌐 Programação Web</h2>
-    </div>
-
-    <div class="card tec">
-        <h2>🧠 Lógica de Programação</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>🎨 Artes</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>👥 Sociologia</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>🤔 Filosofia</h2>
-    </div>
-
-    <div class="card exatas">
-        <h2>⚗️ Química</h2>
-    </div>
-
-    <div class="card exatas">
-        <h2>⚡ Física</h2>
-    </div>
-
-    <div class="card bio">
-        <h2>🏃 Educação Física</h2>
-    </div>
+    <div class="card exatas"><h2>📐 Matemática</h2></div>
+    <div class="card hum"><h2>📜 História</h2></div>
+    <div class="card hum"><h2>🌱 Projeto de Vida</h2></div>
+    <div class="card hum"><h2>🇺🇸 Inglês</h2></div>
+    <div class="card hum"><h2>📖 Português</h2></div>
+    <div class="card hum"><h2>🌍 Geografia</h2></div>
+    <div class="card bio"><h2>🧪 Práticas Experimentais</h2></div>
+    <div class="card bio"><h2>🧬 Biologia</h2></div>
+    <div class="card tec"><h2>💻 Sistemas Operacionais</h2></div>
+    <div class="card tec"><h2>🌐 Programação Web</h2></div>
+    <div class="card tec"><h2>🧠 Lógica de Programação</h2></div>
+    <div class="card hum"><h2>🎨 Artes</h2></div>
+    <div class="card hum"><h2>👥 Sociologia</h2></div>
+    <div class="card hum"><h2>🤔 Filosofia</h2></div>
+    <div class="card exatas"><h2>⚗️ Química</h2></div>
+    <div class="card exatas"><h2>⚡ Física</h2></div>
+    <div class="card bio"><h2>🏃 Educação Física</h2></div>
 
 </div>
 
@@ -150,7 +99,17 @@ function ativarEdicao() {
 }
 
 function salvar() {
-    alert("Copie o conteúdo e salve no seu HTML!");
+    const conteudo = document.getElementById("conteudo").innerHTML;
+    localStorage.setItem("mochila", conteudo);
+    alert("Salvo com sucesso!");
+}
+
+// carregar automaticamente
+window.onload = function() {
+    const salvo = localStorage.getItem("mochila");
+    if (salvo) {
+        document.getElementById("conteudo").innerHTML = salvo;
+    }
 }
 </script>
 
