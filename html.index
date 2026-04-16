@@ -1,0 +1,113 @@
+```html id="b4k2mz"
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Direitos Humanos na Escola</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #ffffff);
+}
+
+/* TOPO */
+.topo {
+    background-color: #00796b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* CONTEÚDO */
+.container {
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* CORES */
+.professor { border-left: 8px solid #00796b; }
+.aluno { border-left: 8px solid #0288d1; }
+.profissionais { border-left: 8px solid #7b1fa2; }
+.resumo { border-left: 8px solid #f57c00; }
+
+/* BOTÃO */
+.btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px;
+    background: #00796b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #004d40;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topo">
+📚 Direitos Humanos na Escola
+</div>
+
+<div class="container">
+
+    <div class="card professor">
+        <h2>👩‍🏫 Professores</h2>
+        <p>👉 Devem respeitar os alunos, sem discriminação.</p>
+        <p>👉 Garantir igualdade e incentivar o respeito.</p>
+        <p>👉 Promover um ambiente seguro e justo.</p>
+    </div>
+
+    <div class="card aluno">
+        <h2>🎓 Alunos</h2>
+        <p>👉 Têm direito à educação de qualidade.</p>
+        <p>👉 Devem respeitar colegas e professores.</p>
+        <p>👉 Não podem sofrer bullying ou preconceito.</p>
+    </div>
+
+    <div class="card profissionais">
+        <h2>🏫 Outros profissionais</h2>
+        <p>👉 Funcionários devem tratar todos com respeito.</p>
+        <p>👉 Ajudam a manter o ambiente organizado.</p>
+        <p>👉 Contribuem para o bem-estar de todos.</p>
+    </div>
+
+    <div class="card resumo">
+        <h2>📌 Resumo</h2>
+        <p>Os direitos humanos na escola garantem respeito, igualdade e convivência saudável entre todos.</p>
+    </div>
+
+</div>
+
+<button class="btn" onclick="mostrarMensagem()">Clique aqui</button>
+
+<script>
+function mostrarMensagem() {
+    alert("Respeito e igualdade são direitos de todos! 💙");
+}
+</script>
+
+</body>
+</html>
+```
