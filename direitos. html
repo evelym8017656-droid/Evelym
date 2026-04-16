@@ -1,0 +1,128 @@
+```html id="q9mz7a"
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Direitos Humanos na Escola</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e3f2fd, #ffffff);
+}
+
+/* TOPO */
+.topo {
+    background-color: #1976d2;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* CONTAINER */
+.container {
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+/* IMAGEM */
+img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+/* BOTÕES */
+.btn {
+    background: #1976d2;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #0d47a1;
+}
+
+/* COMENTÁRIOS */
+textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topo">
+📚 Direitos Humanos na Escola
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <!-- IMAGEM -->
+        <img src="https://cdn.pixabay.com/photo/2016/11/29/09/08/children-1869265_1280.jpg">
+
+        <!-- TEXTO AUTORAL -->
+        <h2>Relação entre professores, alunos e profissionais</h2>
+
+        <p>
+        Os direitos humanos dentro da escola são fundamentais para garantir um ambiente
+        de respeito, igualdade e convivência saudável. Professores devem agir com
+        responsabilidade, respeitando as diferenças e incentivando o diálogo entre os alunos.
+        Já os estudantes precisam aprender a conviver em grupo, respeitando colegas e regras.
+        </p>
+
+        <p>
+        Além disso, outros profissionais da escola, como diretores e funcionários,
+        também têm um papel importante, pois ajudam a manter a organização e o bem-estar
+        de todos. Quando cada pessoa cumpre seu papel com respeito, a escola se torna
+        um lugar mais justo, seguro e acolhedor para todos.
+        </p>
+
+        <!-- COMENTÁRIO -->
+        <h3>💬 Deixe seu comentário:</h3>
+        <textarea placeholder="Escreva aqui..."></textarea>
+        <button class="btn" onclick="enviarComentario()">Enviar</button>
+
+        <!-- VOLTAR -->
+        <br><br>
+        <button class="btn" onclick="voltar()">⬅ Voltar</button>
+
+    </div>
+
+</div>
+
+<script>
+function enviarComentario() {
+    alert("Comentário enviado com sucesso! 😊");
+}
+
+function voltar() {
+    window.history.back();
+}
+</script>
+
+</body>
+</html>
+```
