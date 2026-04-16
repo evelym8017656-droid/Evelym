@@ -1,120 +1,143 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Tipos de Sistemas Operacionais</title>
+<title>Portal de Estudos</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        background: linear-gradient(to right, #ffe4ec, #ffffff);
-    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+}
 
-    .topo {
-        background-color: #ff69b4;
-        color: white;
-        padding: 15px;
-        text-align: center;
-        font-size: 22px;
-        font-weight: bold;
-    }
+/* MENU LATERAL */
+.menu {
+    width: 220px;
+    height: 100vh;
+    background: #ff69b4;
+    color: white;
+    padding-top: 20px;
+    position: fixed;
+}
 
-    .container {
-        padding: 20px;
-    }
+.menu h2 {
+    text-align: center;
+}
 
-    .card {
-        background-color: #fff;
-        padding: 15px;
-        margin-bottom: 15px;
-        border-radius: 12px;
-        box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
-        transition: 0.3s;
-    }
+.menu a {
+    display: block;
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    transition: 0.3s;
+}
 
-    .card:hover {
-        transform: scale(1.02);
-    }
+.menu a:hover {
+    background: #ff4da6;
+}
 
-    .desktop { border-left: 8px solid #ff69b4; }
-    .mobile { border-left: 8px solid #ff85c1; }
-    .servidor { border-left: 8px solid #ff4da6; }
-    .embarcado { border-left: 8px solid #ff99cc; }
+/* CONTEÚDO */
+.conteudo {
+    margin-left: 220px;
+    padding: 20px;
+    width: 100%;
+    background: linear-gradient(to right, #ffe4ec, #ffffff);
+    min-height: 100vh;
+}
 
-    .btn {
-        background-color: #ff69b4;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        margin: 10px;
-    }
+.card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+}
 
-    .btn:hover {
-        background-color: #ff4da6;
-    }
+.btn {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ESCONDER PÁGINAS */
+.pagina {
+    display: none;
+}
+
+.ativa {
+    display: block;
+}
 </style>
 </head>
 
 <body>
 
-<div class="topo">
-    📁 Aula - Sistemas Operacionais
+<!-- MENU -->
+<div class="menu">
+    <h2>📚 Portal</h2>
+    <a href="#" onclick="mostrarPagina('home')">🏠 Início</a>
+    <a href="#" onclick="mostrarPagina('so')">💻 Sistemas Operacionais</a>
+    <a href="#" onclick="mostrarPagina('contato')">📞 Contato</a>
 </div>
 
-<div style="text-align:center;">
-    <button class="btn" onclick="ativarEdicao()">✏️ Editar página</button>
-    <button class="btn" onclick="salvar()">💾 Salvar texto</button>
-</div>
+<!-- CONTEÚDO -->
+<div class="conteudo">
 
-<div class="container" id="conteudo">
-
-    <div class="card desktop">
-        <h2>💻 Desktop</h2>
-        <p><strong>Ex:</strong> Windows</p>
-        <p>👉 Usado em computadores pessoais</p>
-        <p>👉 Foco: usuário final</p>
+    <!-- HOME -->
+    <div id="home" class="pagina ativa">
+        <div class="card">
+            <h2>Bem-vinda 👋</h2>
+            <p>Esse é seu portal de estudos!</p>
+        </div>
     </div>
 
-    <div class="card mobile">
-        <h2>📱 Mobile</h2>
-        <p><strong>Ex:</strong> Android</p>
-        <p>👉 Smartphones</p>
-        <p>👉 Foco: apps + mobilidade</p>
+    <!-- SISTEMAS OPERACIONAIS -->
+    <div id="so" class="pagina">
+        <div class="card">
+            <h2>💻 Desktop</h2>
+            <p>Ex: Windows</p>
+        </div>
+
+        <div class="card">
+            <h2>📱 Mobile</h2>
+            <p>Ex: Android</p>
+        </div>
+
+        <div class="card">
+            <h2>🌐 Servidores</h2>
+            <p>Hospedam sites</p>
+        </div>
+
+        <div class="card">
+            <h2>🤖 Embarcados</h2>
+            <p>TV, carro, micro-ondas</p>
+        </div>
     </div>
 
-    <div class="card servidor">
-        <h2>🌐 Servidores</h2>
-        <p>👉 Computadores que “servem” outros</p>
-        <p>👉 Hospedam sites</p>
+    <!-- CONTATO -->
+    <div id="contato" class="pagina">
+        <div class="card">
+            <h2>📞 Contato</h2>
+            <p>Email: seuemail@gmail.com</p>
+        </div>
     </div>
 
-    <div class="card embarcado">
-        <h2>🤖 Embarcados</h2>
-        <p>👉 Estão dentro de dispositivos</p>
-        <p>👉 Ex: TV, carro, micro-ondas</p>
-    </div>
-
-</div>
-
-<div style="text-align:center;">
-    <a href="aula.html">
-        <button class="btn">Ir para Aula 2</button>
-    </a>
 </div>
 
 <script>
-function ativarEdicao() {
-    document.getElementById("conteudo").contentEditable = true;
-    alert("Modo edição ativado! Agora você pode editar o texto.");
-}
+function mostrarPagina(paginaId) {
+    let paginas = document.querySelectorAll(".pagina");
+    paginas.forEach(p => p.classList.remove("ativa"));
 
-function salvar() {
-    alert("Copie o conteúdo editado e cole no seu código HTML!");
+    document.getElementById(paginaId).classList.add("ativa");
 }
 </script>
 
 </body>
 </html>
+```
