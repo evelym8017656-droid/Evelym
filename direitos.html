@@ -15,10 +15,10 @@
         header {
             background-color: #ff69b4;
             color: white;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
             font-family: 'Brush Script MT', cursive;
-            font-size: 30px;
+            font-size: 32px;
         }
 
         .container {
@@ -31,6 +31,7 @@
             display: block;
             margin: 20px auto;
             border-radius: 15px;
+            box-shadow: 0 0 15px #ff69b4;
         }
 
         p {
@@ -42,7 +43,7 @@
             padding: 10px 15px;
             margin: 10px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
         }
@@ -57,21 +58,17 @@
             color: white;
         }
 
-        /* Lacinhos caindo */
+        /* Lacinhos */
         .laco {
             position: fixed;
             top: -50px;
             font-size: 24px;
-            animation: cair 5s linear infinite;
+            animation: cair linear infinite;
         }
 
         @keyframes cair {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(110vh);
-            }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(110vh); }
         }
     </style>
 </head>
@@ -79,7 +76,7 @@
 <body>
 
 <header>
-    <h1>Direitos Humanos na Escola</h1>
+    💍💍 Direitos Humanos na Escola 💍💍
 </header>
 
 <div class="container">
@@ -103,8 +100,8 @@
         Assim, os direitos humanos ajudam a construir uma convivência mais justa e harmoniosa dentro da escola.
     </p>
 
-    <button class="comentario" onclick="abrirComentario()">Deixar Comentário</button>
-    <button class="voltar" onclick="voltarPagina()">Voltar</button>
+    <button class="comentario" onclick="abrirComentario()">💬 Comentar</button>
+    <button class="voltar" onclick="voltarPagina()">⬅ Voltar</button>
 
 </div>
 
@@ -112,7 +109,7 @@
     function abrirComentario() {
         let comentario = prompt("Digite seu comentário:");
         
-        if (comentario != null && comentario != "") {
+        if (comentario && comentario.trim() !== "") {
             alert("Comentário enviado: " + comentario);
         } else {
             alert("Nenhum comentário foi digitado.");
@@ -123,7 +120,6 @@
         window.history.back();
     }
 
-    // Criar lacinhos caindo
     function criarLacos() {
         const laco = document.createElement("div");
         laco.classList.add("laco");
