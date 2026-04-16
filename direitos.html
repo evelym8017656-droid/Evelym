@@ -8,14 +8,17 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background: #f0f8ff;
+            background: linear-gradient(to bottom, #ffc0cb, #ffe4ec);
+            overflow-x: hidden;
         }
 
         header {
-            background-color: #4CAF50;
+            background-color: #ff69b4;
             color: white;
             padding: 15px;
             text-align: center;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 30px;
         }
 
         .container {
@@ -27,7 +30,7 @@
             max-width: 500px;
             display: block;
             margin: 20px auto;
-            border-radius: 10px;
+            border-radius: 15px;
         }
 
         p {
@@ -45,13 +48,30 @@
         }
 
         .comentario {
-            background-color: #2196F3;
+            background-color: #ff1493;
             color: white;
         }
 
         .voltar {
-            background-color: #f44336;
+            background-color: #c71585;
             color: white;
+        }
+
+        /* Lacinhos caindo */
+        .laco {
+            position: fixed;
+            top: -50px;
+            font-size: 24px;
+            animation: cair 5s linear infinite;
+        }
+
+        @keyframes cair {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(110vh);
+            }
         }
     </style>
 </head>
@@ -64,7 +84,7 @@
 
 <div class="container">
 
-    <img src="https://cdn.pixabay.com/photo/2016/11/29/09/32/classroom-1867772_1280.jpg" alt="Escola">
+    <img src="https://cdn.pixabay.com/photo/2017/02/07/09/02/school-2046785_1280.jpg" alt="Escola">
 
     <p>
         Os direitos humanos dentro da escola são essenciais para garantir um ambiente respeitoso, justo e acolhedor para todos.
@@ -102,6 +122,24 @@
     function voltarPagina() {
         window.history.back();
     }
+
+    // Criar lacinhos caindo
+    function criarLacos() {
+        const laco = document.createElement("div");
+        laco.classList.add("laco");
+        laco.innerHTML = "🎀";
+
+        laco.style.left = Math.random() * 100 + "vw";
+        laco.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+        document.body.appendChild(laco);
+
+        setTimeout(() => {
+            laco.remove();
+        }, 5000);
+    }
+
+    setInterval(criarLacos, 300);
 </script>
 
 </body>
