@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mochila D.H</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1{
+    color: gold;
+}
+
+button{
+    background: gold;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover{
+    background: #ffea00;
+}
+
+#mochila{
+    display: none;
+    background: white;
+    color: black;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎒 Mochila D.H</h1>
+
+<p>Clique no botão para abrir a mochila.</p>
+
+<button onclick="abrirMochila()">🎒 Abrir Mochila</button>
+
+<div id="mochila">
+    <h2>D.H</h2>
+
+    <p>
+        A internet oferece diversas oportunidades para jovens aprenderem,
+        criarem projetos e desenvolverem habilidades na programação web.
+    </p>
+
+    <p>
+        Os conhecimentos sobre internet, algoritmos, lógica de programação
+        e organização de arquivos são importantes para quem deseja trabalhar
+        com tecnologia no futuro.
+    </p>
+
+    <p>
+        O empreendedorismo digital pode ser uma ótima oportunidade quando
+        realizado de forma responsável e sem prejudicar os estudos.
+    </p>
+
+    <p>
+        O mais importante é investir no aprendizado e construir uma carreira
+        sólida, ética e profissional para o futuro.
+    </p>
+</div>
+
+<script>
+function abrirMochila() {
+    let mochila = document.getElementById("mochila");
+
+    if (mochila.style.display === "none" || mochila.style.display === "") {
+        mochila.style.display = "block";
+    } else {
+        mochila.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
