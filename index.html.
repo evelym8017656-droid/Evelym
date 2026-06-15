@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programação Web e Empreendedorismo Digital</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.3);
+}
+
+h1{
+    color: #ffd700;
+}
+
+.container{
+    width: 85%;
+    margin: auto;
+    padding: 20px;
+}
+
+img{
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.texto{
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.8;
+}
+
+.comentarios{
+    margin-top: 30px;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+textarea{
+    width: 100%;
+    height: 120px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button{
+    background: #ffd700;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover{
+    background: #ffea00;
+}
+
+footer{
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Programação Web, Empreendedorismo Digital e Trabalho Infantil</h1>
+</header>
+
+<div class="container">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Programação Web">
+
+<div class="texto">
+<p>
+A internet oferece diversas oportunidades para jovens aprenderem, criarem projetos e até iniciarem atividades ligadas ao empreendedorismo digital. Os conhecimentos estudados, como o funcionamento da internet, lógica de programação, algoritmos e organização de arquivos, são fundamentais para quem deseja atuar na área de tecnologia e programação web.
+</p>
+
+<p>
+Atualmente, muitas pessoas utilizam a internet para desenvolver negócios, criar sites, aplicativos e conteúdos digitais. Essas atividades podem gerar oportunidades profissionais e ajudar no desenvolvimento de novas habilidades. Porém, é importante compreender a diferença entre aprender, empreender e ser explorado.
+</p>
+
+<p>
+Ganhar dinheiro na internet pode ser uma experiência positiva quando acontece de forma equilibrada e responsável. O jovem não deve deixar de estudar, descansar, cuidar da saúde ou conviver com a família e os amigos por causa do trabalho. Quando as atividades exigem responsabilidades excessivas, longas jornadas ou prejudicam a educação, pode ocorrer a exploração do trabalho infantil.
+</p>
+
+<p>
+Por isso, o mais importante nesta fase da vida é investir na formação e no conhecimento. Aprender programação, desenvolver projetos e aprimorar habilidades tecnológicas são atitudes que contribuem para a construção de uma carreira sólida no futuro.
+</p>
+
+<p>
+O verdadeiro sucesso não está apenas em ganhar dinheiro cedo, mas em construir uma trajetória profissional baseada em conhecimento, ética, responsabilidade e dedicação. Dessa forma, as oportunidades que surgirem poderão ser aproveitadas de maneira segura, sustentável e profissional.
+</p>
+</div>
+
+<div class="comentarios">
+    <h2>Deixe seu comentário</h2>
+    <textarea placeholder="Digite seu comentário aqui..."></textarea>
+    <br>
+    <button onclick="alert('Comentário enviado com sucesso!')">Enviar Comentário</button>
+</div>
+
+<br>
+
+<button onclick="history.back()">⬅ Voltar</button>
+
+</div>
+
+<footer>
+    <p>Site Educativo - Programação Web e Empreendedorismo Digital © 2026</p>
+</footer>
+
+</body>
+</html>
