@@ -1,7 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Minha Mochila de Matérias</title>
 
 <style>
@@ -22,26 +25,50 @@
 
     .container {
         padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
     }
 
     .card {
         background-color: #fff;
         padding: 15px;
-        margin-bottom: 15px;
         border-radius: 12px;
         box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
         transition: 0.3s;
+        min-height: 70px;
+        display: flex;
+        align-items: center;
     }
 
     .card:hover {
         transform: scale(1.02);
     }
 
-    .mat { border-left: 8px solid #ff69b4; }
-    .hum { border-left: 8px solid #ff85c1; }
-    .tec { border-left: 8px solid #ff4da6; }
-    .bio { border-left: 8px solid #ff99cc; }
-    .exatas { border-left: 8px solid #ff66b2; }
+    .card h2 {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .mat {
+        border-left: 8px solid #ff69b4;
+    }
+
+    .hum {
+        border-left: 8px solid #ff85c1;
+    }
+
+    .tec {
+        border-left: 8px solid #ff4da6;
+    }
+
+    .bio {
+        border-left: 8px solid #ff99cc;
+    }
+
+    .exatas {
+        border-left: 8px solid #ff66b2;
+    }
 
     .btn {
         background-color: #ff69b4;
@@ -51,10 +78,24 @@
         border-radius: 8px;
         cursor: pointer;
         margin: 10px;
+        font-size: 15px;
     }
 
     .btn:hover {
         background-color: #ff4da6;
+    }
+
+    /* Ajuste para telas menores */
+    @media (max-width: 900px) {
+        .container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
 </head>
@@ -72,47 +113,136 @@
 
 <div class="container" id="conteudo">
 
-    <div class="card exatas"><h2>📐 Matemática</h2></div>
-    <div class="card hum"><h2>📜 História</h2></div>
-    <div class="card hum"><h2>🌱 Projeto de Vida</h2></div>
-    <div class="card hum"><h2>🇺🇸 Inglês</h2></div>
-    <div class="card hum"><h2>📖 Português</h2></div>
-    <div class="card hum"><h2>🌍 Geografia</h2></div>
-    <div class="card bio"><h2>🧪 Práticas Experimentais</h2></div>
-    <div class="card bio"><h2>🧬 Biologia</h2></div>
-    <div class="card tec"><h2>💻 Sistemas Operacionais</h2></div>
-    <div class="card tec"><h2>🌐 Programação Web</h2></div>
-    <div class="card tec"><h2>🧠 Lógica de Programação</h2></div>
-    <div class="card hum"><h2>🎨 Artes</h2></div>
-    <div class="card hum"><h2>👥 Sociologia</h2></div>
-    <div class="card hum"><h2>🤔 Filosofia</h2></div>
-    <div class="card exatas"><h2>⚗️ Química</h2></div>
-    <div class="card exatas"><h2>⚡ Física</h2></div>
-    <div class="card bio"><h2>🏃 Educação Física</h2></div>
+    <div class="card exatas">
+        <h2>📐 Matemática</h2>
+    </div>
+
+    <div class="card hum">
+        <h2>📜 História</h2>
+    </div>
+
+    <div class="card hum">
+        <h2>🌱 Projeto de Vida</h2>
+    </div>
+
+    <div class="card hum">
+        <h2>🇺🇸 Inglês</h2>
+    </div>
+
+    <div class="card hum">
+        <h2>📖 Português</h2>
+    </div>
+
+    <div class="card hum">
+        <h2>🌍 Geografia</h2>
+    </div>
+
+    <div class="card bio">
+        <h2>🧪 Práticas Experimentais</h2>
+    </div>
+
+    <div class="card bio">
+        <h2>🧬 Biologia</h2>
+    </div>
+
+    <div class="card exatas">
+        <h2>⚗️ Química</h2>
+    </div>
+
+    <div class="card exatas">
+        <h2>⚡ Física</h2>
+    </div>
+
+    <div class="card bio">
+        <h2>🏃 Educação Física</h2>
+    </div>
+
+    <div class="card hum">
+        <h2>🎨 Artes</h2>
+    </div>
+
+    <div class="card hum">
+        <h2>👥 Sociologia</h2>
+    </div>
+
+    <div class="card hum">
+        <h2>🤔 Filosofia</h2>
+    </div>
+
+    <div class="card tec">
+        <h2>💻 Sistemas Operacionais</h2>
+    </div>
+
+    <div class="card tec">
+        <h2>🌐 Programação Web</h2>
+    </div>
+
+    <div class="card tec">
+        <h2>🧠 Lógica de Programação</h2>
+    </div>
+
+    <div class="card tec">
+        <h2>🌐 HTML</h2>
+    </div>
+
+    <div class="card tec">
+        <h2>⏰ Gestão de Tempo</h2>
+    </div>
+
+    <div class="card tec">
+        <h2>🤖 Noções de Robótica</h2>
+    </div>
+
+    <div class="card tec">
+        <h2>🖥️ Arq. e Manut. de Computadores</h2>
+    </div>
+
+    <div class="card hum">
+        <h2>📚 Estudos Orientados</h2>
+    </div>
+
+    <div class="card bio">
+        <h2>🥋 Judô</h2>
+    </div>
 
 </div>
 
+<div style="text-align:center; padding-bottom:20px;">
+    <a href="direitos.html">
+        <button class="btn">🎒 D.H</button>
+    </a>
+</div>
+
 <script>
+
 function ativarEdicao() {
     document.getElementById("conteudo").contentEditable = true;
-    alert("Modo edição ativado!");
+
+    alert("Modo edição ativado! ✏️");
 }
 
 function salvar() {
     const conteudo = document.getElementById("conteudo").innerHTML;
+
     localStorage.setItem("mochila", conteudo);
-    alert("Salvo com sucesso!");
+
+    document.getElementById("conteudo").contentEditable = false;
+
+    alert("Salvo com sucesso! 💾");
 }
 
-// carregar automaticamente
 window.onload = function() {
+
     const salvo = localStorage.getItem("mochila");
+
     if (salvo) {
         document.getElementById("conteudo").innerHTML = salvo;
     }
+
 }
+
 </script>
 
 </body>
-    <a href="direitos.html">D.H</a>
 </html>
+```
