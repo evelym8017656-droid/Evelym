@@ -32,7 +32,7 @@ body {
     box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
-/* ===== ÁREA DE PESQUISA ===== */
+/* ===== PESQUISA ===== */
 
 .area-pesquisa {
     display: flex;
@@ -73,7 +73,7 @@ body {
     transform: translateY(-1px);
 }
 
-/* ===== LAYOUT PRINCIPAL ===== */
+/* ===== LAYOUT ===== */
 
 .pagina {
     display: flex;
@@ -117,6 +117,7 @@ body {
 .nota-item strong {
     display: block;
     margin-bottom: 6px;
+    font-size: 14px;
 }
 
 .nota-item input {
@@ -214,7 +215,7 @@ body {
     border-left: 8px solid #ff66b2;
 }
 
-/* ===== MENSAGEM DE PESQUISA ===== */
+/* ===== PESQUISA ===== */
 
 #mensagemPesquisa {
     text-align: center;
@@ -231,7 +232,7 @@ body {
     padding: 20px;
 }
 
-/* ===== JANELA ADICIONAR ===== */
+/* ===== MODAL ===== */
 
 .modal {
     display: none;
@@ -275,7 +276,7 @@ body {
     margin-top: 10px;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* ===== RESPONSIVO ===== */
 
 @media (max-width: 1000px) {
 
@@ -312,7 +313,7 @@ body {
 
 <body>
 
-<!-- ===== CABEÇALHO ===== -->
+<!-- ===== TOPO ===== -->
 
 <div class="topo">
     🎒 Minha Mochila de Matérias
@@ -343,19 +344,18 @@ body {
 
 </div>
 
-
 <!-- ===== PÁGINA ===== -->
 
 <div class="pagina">
 
-    <!-- ===== BOLETIM LADO ESQUERDO ===== -->
+    <!-- ===== BOLETIM ===== -->
 
     <aside class="boletim">
 
         <h2>📋 Meu Boletim</h2>
 
         <div class="boletim-subtitulo">
-            Acompanhe suas notas e médias
+            Notas de 0 até 29
         </div>
 
         <div id="listaNotas"></div>
@@ -369,13 +369,16 @@ body {
             Informe suas notas
         </div>
 
-        <button class="btn" style="width:100%; margin:15px 0 0 0;"
-                onclick="calcularMedia()">
+        <button
+            class="btn"
+            style="width:100%; margin:15px 0 0 0;"
+            onclick="calcularMedia()">
+
             📊 Calcular média
+
         </button>
 
     </aside>
-
 
     <!-- ===== MOCHILA ===== -->
 
@@ -479,16 +482,11 @@ body {
                 <h2>📚 Estudos Orientados</h2>
             </div>
 
-            <div class="card bio">
-                <h2>🥋 Judô</h2>
-            </div>
-
         </div>
 
     </main>
 
 </div>
-
 
 <!-- ===== RODAPÉ ===== -->
 
@@ -500,8 +498,7 @@ body {
 
 </div>
 
-
-<!-- ===== JANELA ADICIONAR MATÉRIA ===== -->
+<!-- ===== MODAL ADICIONAR ===== -->
 
 <div class="modal" id="modalAdicionar">
 
@@ -537,25 +534,26 @@ body {
 
 </div>
 
-
 <script>
 
-/* ===== PESQUISAR MATÉRIA ===== */
+/* ===== PESQUISAR ===== */
 
 function pesquisarMateria() {
 
-    const pesquisa = document
-        .getElementById("pesquisa")
+    const pesquisa =
+        document.getElementById("pesquisa")
         .value
         .toLowerCase();
 
-    const cards = document.querySelectorAll(".card");
+    const cards =
+        document.querySelectorAll(".card");
 
     let encontrou = false;
 
     cards.forEach(card => {
 
-        const texto = card.innerText.toLowerCase();
+        const texto =
+            card.innerText.toLowerCase();
 
         if (texto.includes(pesquisa)) {
 
@@ -585,33 +583,31 @@ function pesquisarMateria() {
 }
 
 
-/* ===== ABRIR ADICIONAR ===== */
+/* ===== ADICIONAR ===== */
 
 function abrirAdicionar() {
 
-    document.getElementById("modalAdicionar").style.display = "flex";
+    document.getElementById("modalAdicionar")
+    .style.display = "flex";
 
 }
-
-
-/* ===== FECHAR ADICIONAR ===== */
 
 function fecharAdicionar() {
 
-    document.getElementById("modalAdicionar").style.display = "none";
+    document.getElementById("modalAdicionar")
+    .style.display = "none";
 
 }
-
-
-/* ===== ADICIONAR MATÉRIA ===== */
 
 function adicionarMateria() {
 
     const nome =
-        document.getElementById("nomeMateria").value.trim();
+        document.getElementById("nomeMateria")
+        .value.trim();
 
     const emoji =
-        document.getElementById("emojiMateria").value.trim();
+        document.getElementById("emojiMateria")
+        .value.trim();
 
     if (nome === "") {
 
@@ -653,14 +649,15 @@ function adicionarMateria() {
 
 function ativarEdicao() {
 
-    document.getElementById("conteudo").contentEditable = true;
+    document.getElementById("conteudo")
+    .contentEditable = true;
 
     alert("Modo edição ativado! ✏️");
 
 }
 
 
-/* ===== CRIAR BOLETIM ===== */
+/* ===== BOLETIM ===== */
 
 function criarBoletim() {
 
@@ -672,9 +669,10 @@ function criarBoletim() {
 
     lista.innerHTML = "";
 
-    materias.forEach((materia, index) => {
+    materias.forEach(materia => {
 
-        const nome = materia.innerText;
+        const nome =
+            materia.innerText;
 
         const item =
             document.createElement("div");
@@ -687,9 +685,9 @@ function criarBoletim() {
             <input
                 type="number"
                 min="0"
-                max="10"
+                max="29"
                 step="0.1"
-                placeholder="Digite a nota"
+                placeholder="Nota (0 a 29)"
                 class="nota"
                 data-materia="${nome}"
                 oninput="calcularMedia()"
@@ -715,7 +713,8 @@ function calcularMedia() {
 
     notas.forEach(input => {
 
-        const valor = parseFloat(input.value);
+        const valor =
+            parseFloat(input.value);
 
         if (!isNaN(valor)) {
 
@@ -728,34 +727,48 @@ function calcularMedia() {
 
     if (quantidade === 0) {
 
-        document.getElementById("mediaGeral").innerText = "0,0";
+        document.getElementById("mediaGeral")
+        .innerText = "0,0";
 
-        document.getElementById("situacao").innerText =
-            "Informe suas notas";
+        document.getElementById("situacao")
+        .innerText = "Informe suas notas";
 
-        document.getElementById("situacao").className =
-            "situacao";
+        document.getElementById("situacao")
+        .className = "situacao";
 
         return;
     }
 
-    const media = soma / quantidade;
+    const media =
+        soma / quantidade;
 
-    document.getElementById("mediaGeral").innerText =
+    document.getElementById("mediaGeral")
+        .innerText =
         media.toFixed(1).replace(".", ",");
 
     const situacao =
         document.getElementById("situacao");
 
-    if (media >= 6) {
+    /*
+       Como a escala agora é de 0 a 29,
+       a média correspondente a 60% é 17,4.
+    */
 
-        situacao.innerText = "🟢 Aprovado";
-        situacao.className = "situacao aprovado";
+    if (media >= 17.4) {
+
+        situacao.innerText =
+            "🟢 Aprovado";
+
+        situacao.className =
+            "situacao aprovado";
 
     } else {
 
-        situacao.innerText = "🔴 Recuperação";
-        situacao.className = "situacao recuperacao";
+        situacao.innerText =
+            "🔴 Recuperação";
+
+        situacao.className =
+            "situacao recuperacao";
 
     }
 
@@ -767,7 +780,8 @@ function calcularMedia() {
 function salvarTudo() {
 
     const conteudo =
-        document.getElementById("conteudo").innerHTML;
+        document.getElementById("conteudo")
+        .innerHTML;
 
     localStorage.setItem(
         "mochila",
@@ -776,21 +790,28 @@ function salvarTudo() {
 
     const notas = [];
 
-    document.querySelectorAll(".nota").forEach(input => {
+    document.querySelectorAll(".nota")
+        .forEach(input => {
 
-        notas.push({
-            materia: input.dataset.materia,
-            nota: input.value
+            notas.push({
+
+                materia:
+                    input.dataset.materia,
+
+                nota:
+                    input.value
+
+            });
+
         });
-
-    });
 
     localStorage.setItem(
         "notasMochila",
         JSON.stringify(notas)
     );
 
-    document.getElementById("conteudo").contentEditable = false;
+    document.getElementById("conteudo")
+        .contentEditable = false;
 
     alert("Tudo foi salvo com sucesso! 💾💕");
 
@@ -806,8 +827,8 @@ window.onload = function() {
 
     if (salvo) {
 
-        document.getElementById("conteudo").innerHTML =
-            salvo;
+        document.getElementById("conteudo")
+            .innerHTML = salvo;
 
     }
 
@@ -827,12 +848,15 @@ window.onload = function() {
 
             const encontrada =
                 notasSalvas.find(
-                    n => n.materia === campo.dataset.materia
+                    n =>
+                    n.materia ===
+                    campo.dataset.materia
                 );
 
             if (encontrada) {
 
-                campo.value = encontrada.nota;
+                campo.value =
+                    encontrada.nota;
 
             }
 
