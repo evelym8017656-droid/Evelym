@@ -8,238 +8,841 @@
 <title>Minha Mochila de Matérias</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        background: linear-gradient(to right, #ffe4ec, #ffffff);
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #ffe4ec, #ffffff);
+    color: #5c2140;
+}
+
+/* ===== TOPO ===== */
+
+.topo {
+    background-color: #ff69b4;
+    color: white;
+    padding: 18px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* ===== ÁREA DE PESQUISA ===== */
+
+.area-pesquisa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 18px;
+    flex-wrap: wrap;
+}
+
+#pesquisa {
+    width: 320px;
+    padding: 13px;
+    border: 2px solid #ff69b4;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+}
+
+#pesquisa:focus {
+    box-shadow: 0 0 8px rgba(255,105,180,0.4);
+}
+
+.btn {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 11px 16px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 4px;
+}
+
+.btn:hover {
+    background-color: #ff4da6;
+    transform: translateY(-1px);
+}
+
+/* ===== LAYOUT PRINCIPAL ===== */
+
+.pagina {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+}
+
+/* ===== BOLETIM ===== */
+
+.boletim {
+    width: 300px;
+    background: white;
+    border-radius: 15px;
+    padding: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-top: 7px solid #ff69b4;
+    flex-shrink: 0;
+}
+
+.boletim h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #d63384;
+}
+
+.boletim-subtitulo {
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.nota-item {
+    background: #fff0f6;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 9px;
+}
+
+.nota-item strong {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.nota-item input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ffb6d5;
+    border-radius: 7px;
+    outline: none;
+}
+
+.media {
+    background: #ff69b4;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.situacao {
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 9px;
+    font-weight: bold;
+    background: #fff0f6;
+}
+
+.aprovado {
+    color: #198754;
+}
+
+.recuperacao {
+    color: #dc3545;
+}
+
+/* ===== MOCHILA ===== */
+
+.area-mochila {
+    flex: 1;
+}
+
+.titulo-mochila {
+    color: #d63384;
+    margin-top: 0;
+}
+
+/* ===== CARDS ===== */
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 5px 12px rgba(0,0,0,0.18);
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.mat {
+    border-left: 8px solid #ff69b4;
+}
+
+.hum {
+    border-left: 8px solid #ff85c1;
+}
+
+.tec {
+    border-left: 8px solid #ff4da6;
+}
+
+.bio {
+    border-left: 8px solid #ff99cc;
+}
+
+.exatas {
+    border-left: 8px solid #ff66b2;
+}
+
+/* ===== MENSAGEM DE PESQUISA ===== */
+
+#mensagemPesquisa {
+    text-align: center;
+    color: #d63384;
+    font-weight: bold;
+    padding: 15px;
+    display: none;
+}
+
+/* ===== RODAPÉ ===== */
+
+.rodape {
+    text-align: center;
+    padding: 20px;
+}
+
+/* ===== JANELA ADICIONAR ===== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo {
+    background: white;
+    width: 350px;
+    max-width: 90%;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.modal-conteudo h2 {
+    color: #d63384;
+    text-align: center;
+    margin-top: 0;
+}
+
+.modal-conteudo input {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0;
+    border: 1px solid #ff9dcc;
+    border-radius: 8px;
+    outline: none;
+}
+
+.botoes-modal {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 1000px) {
+
+    .pagina {
+        flex-direction: column;
     }
 
-    .topo {
-        background-color: #ff69b4;
-        color: white;
-        padding: 15px;
-        text-align: center;
-        font-size: 22px;
-        font-weight: bold;
+    .boletim {
+        width: 100%;
     }
 
     .container {
-        padding: 20px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        grid-template-columns: 1fr;
     }
 
-    .card {
-        background-color: #fff;
-        padding: 15px;
-        border-radius: 12px;
-        box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
-        transition: 0.3s;
-        min-height: 70px;
-        display: flex;
-        align-items: center;
+    #pesquisa {
+        width: 90%;
     }
 
-    .card:hover {
-        transform: scale(1.02);
+    .topo {
+        font-size: 21px;
     }
+}
 
-    .card h2 {
-        margin: 0;
-        font-size: 20px;
-    }
-
-    .mat {
-        border-left: 8px solid #ff69b4;
-    }
-
-    .hum {
-        border-left: 8px solid #ff85c1;
-    }
-
-    .tec {
-        border-left: 8px solid #ff4da6;
-    }
-
-    .bio {
-        border-left: 8px solid #ff99cc;
-    }
-
-    .exatas {
-        border-left: 8px solid #ff66b2;
-    }
-
-    .btn {
-        background-color: #ff69b4;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        margin: 10px;
-        font-size: 15px;
-    }
-
-    .btn:hover {
-        background-color: #ff4da6;
-    }
-
-    /* Ajuste para telas menores */
-    @media (max-width: 900px) {
-        .container {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 600px) {
-        .container {
-            grid-template-columns: 1fr;
-        }
-    }
 </style>
 </head>
 
 <body>
 
+<!-- ===== CABEÇALHO ===== -->
+
 <div class="topo">
     🎒 Minha Mochila de Matérias
 </div>
 
-<div style="text-align:center;">
-    <button class="btn" onclick="ativarEdicao()">✏️ Editar página</button>
-    <button class="btn" onclick="salvar()">💾 Salvar</button>
-</div>
+<!-- ===== PESQUISA E BOTÕES ===== -->
 
-<div class="container" id="conteudo">
+<div class="area-pesquisa">
 
-    <div class="card exatas">
-        <h2>📐 Matemática</h2>
-    </div>
+    <input
+        type="text"
+        id="pesquisa"
+        placeholder="🔎 Pesquisar matéria..."
+        onkeyup="pesquisarMateria()"
+    >
 
-    <div class="card hum">
-        <h2>📜 História</h2>
-    </div>
+    <button class="btn" onclick="abrirAdicionar()">
+        ➕ Adicionar matéria
+    </button>
 
-    <div class="card hum">
-        <h2>🌱 Projeto de Vida</h2>
-    </div>
+    <button class="btn" onclick="ativarEdicao()">
+        ✏️ Editar página
+    </button>
 
-    <div class="card hum">
-        <h2>🇺🇸 Inglês</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>📖 Português</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>🌍 Geografia</h2>
-    </div>
-
-    <div class="card bio">
-        <h2>🧪 Práticas Experimentais</h2>
-    </div>
-
-    <div class="card bio">
-        <h2>🧬 Biologia</h2>
-    </div>
-
-    <div class="card exatas">
-        <h2>⚗️ Química</h2>
-    </div>
-
-    <div class="card exatas">
-        <h2>⚡ Física</h2>
-    </div>
-
-    <div class="card bio">
-        <h2>🏃 Educação Física</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>🎨 Artes</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>👥 Sociologia</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>🤔 Filosofia</h2>
-    </div>
-
-    <div class="card tec">
-        <h2>💻 Sistemas Operacionais</h2>
-    </div>
-
-    <div class="card tec">
-        <h2>🌐 Programação Web</h2>
-    </div>
-
-    <div class="card tec">
-        <h2>🧠 Lógica de Programação</h2>
-    </div>
-
-    <div class="card tec">
-        <h2>🌐 HTML</h2>
-    </div>
-
-    <div class="card tec">
-        <h2>⏰ Gestão de Tempo</h2>
-    </div>
-
-    <div class="card tec">
-        <h2>🤖 Noções de Robótica</h2>
-    </div>
-
-    <div class="card tec">
-        <h2>🖥️ Arq. e Manut. de Computadores</h2>
-    </div>
-
-    <div class="card hum">
-        <h2>📚 Estudos Orientados</h2>
-    </div>
-
-    <div class="card bio">
-        <h2>🥋 Judô</h2>
-    </div>
+    <button class="btn" onclick="salvarTudo()">
+        💾 Salvar
+    </button>
 
 </div>
 
-<div style="text-align:center; padding-bottom:20px;">
+
+<!-- ===== PÁGINA ===== -->
+
+<div class="pagina">
+
+    <!-- ===== BOLETIM LADO ESQUERDO ===== -->
+
+    <aside class="boletim">
+
+        <h2>📋 Meu Boletim</h2>
+
+        <div class="boletim-subtitulo">
+            Acompanhe suas notas e médias
+        </div>
+
+        <div id="listaNotas"></div>
+
+        <div class="media">
+            Média geral:
+            <span id="mediaGeral">0,0</span>
+        </div>
+
+        <div class="situacao" id="situacao">
+            Informe suas notas
+        </div>
+
+        <button class="btn" style="width:100%; margin:15px 0 0 0;"
+                onclick="calcularMedia()">
+            📊 Calcular média
+        </button>
+
+    </aside>
+
+
+    <!-- ===== MOCHILA ===== -->
+
+    <main class="area-mochila">
+
+        <h2 class="titulo-mochila">
+            📚 Minhas Matérias
+        </h2>
+
+        <div id="mensagemPesquisa">
+            Nenhuma matéria encontrada.
+        </div>
+
+        <div class="container" id="conteudo">
+
+            <div class="card exatas">
+                <h2>📐 Matemática</h2>
+            </div>
+
+            <div class="card hum">
+                <h2>📜 História</h2>
+            </div>
+
+            <div class="card hum">
+                <h2>🌱 Projeto de Vida</h2>
+            </div>
+
+            <div class="card hum">
+                <h2>🇺🇸 Inglês</h2>
+            </div>
+
+            <div class="card hum">
+                <h2>📖 Português</h2>
+            </div>
+
+            <div class="card hum">
+                <h2>🌍 Geografia</h2>
+            </div>
+
+            <div class="card bio">
+                <h2>🧪 Práticas Experimentais</h2>
+            </div>
+
+            <div class="card bio">
+                <h2>🧬 Biologia</h2>
+            </div>
+
+            <div class="card exatas">
+                <h2>⚗️ Química</h2>
+            </div>
+
+            <div class="card exatas">
+                <h2>⚡ Física</h2>
+            </div>
+
+            <div class="card bio">
+                <h2>🏃 Educação Física</h2>
+            </div>
+
+            <div class="card hum">
+                <h2>🎨 Artes</h2>
+            </div>
+
+            <div class="card hum">
+                <h2>👥 Sociologia</h2>
+            </div>
+
+            <div class="card hum">
+                <h2>🤔 Filosofia</h2>
+            </div>
+
+            <div class="card tec">
+                <h2>💻 Sistemas Operacionais</h2>
+            </div>
+
+            <div class="card tec">
+                <h2>🌐 Programação Web</h2>
+            </div>
+
+            <div class="card tec">
+                <h2>🧠 Lógica de Programação</h2>
+            </div>
+
+            <div class="card tec">
+                <h2>🌐 HTML</h2>
+            </div>
+
+            <div class="card tec">
+                <h2>⏰ Gestão de Tempo</h2>
+            </div>
+
+            <div class="card tec">
+                <h2>🤖 Noções de Robótica</h2>
+            </div>
+
+            <div class="card tec">
+                <h2>🖥️ Arq. e Manut. de Computadores</h2>
+            </div>
+
+            <div class="card hum">
+                <h2>📚 Estudos Orientados</h2>
+            </div>
+
+            <div class="card bio">
+                <h2>🥋 Judô</h2>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- ===== RODAPÉ ===== -->
+
+<div class="rodape">
+
     <a href="direitos.html">
         <button class="btn">🎒 D.H</button>
     </a>
+
 </div>
+
+
+<!-- ===== JANELA ADICIONAR MATÉRIA ===== -->
+
+<div class="modal" id="modalAdicionar">
+
+    <div class="modal-conteudo">
+
+        <h2>➕ Nova Matéria</h2>
+
+        <input
+            type="text"
+            id="nomeMateria"
+            placeholder="Nome da matéria"
+        >
+
+        <input
+            type="text"
+            id="emojiMateria"
+            placeholder="Emoji (ex: 📚)"
+        >
+
+        <div class="botoes-modal">
+
+            <button class="btn" onclick="adicionarMateria()">
+                Adicionar
+            </button>
+
+            <button class="btn" onclick="fecharAdicionar()">
+                Cancelar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <script>
 
+/* ===== PESQUISAR MATÉRIA ===== */
+
+function pesquisarMateria() {
+
+    const pesquisa = document
+        .getElementById("pesquisa")
+        .value
+        .toLowerCase();
+
+    const cards = document.querySelectorAll(".card");
+
+    let encontrou = false;
+
+    cards.forEach(card => {
+
+        const texto = card.innerText.toLowerCase();
+
+        if (texto.includes(pesquisa)) {
+
+            card.style.display = "flex";
+            encontrou = true;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    const mensagem =
+        document.getElementById("mensagemPesquisa");
+
+    if (!encontrou && pesquisa !== "") {
+
+        mensagem.style.display = "block";
+
+    } else {
+
+        mensagem.style.display = "none";
+
+    }
+}
+
+
+/* ===== ABRIR ADICIONAR ===== */
+
+function abrirAdicionar() {
+
+    document.getElementById("modalAdicionar").style.display = "flex";
+
+}
+
+
+/* ===== FECHAR ADICIONAR ===== */
+
+function fecharAdicionar() {
+
+    document.getElementById("modalAdicionar").style.display = "none";
+
+}
+
+
+/* ===== ADICIONAR MATÉRIA ===== */
+
+function adicionarMateria() {
+
+    const nome =
+        document.getElementById("nomeMateria").value.trim();
+
+    const emoji =
+        document.getElementById("emojiMateria").value.trim();
+
+    if (nome === "") {
+
+        alert("Digite o nome da matéria.");
+
+        return;
+    }
+
+    const container =
+        document.getElementById("conteudo");
+
+    const novoCard =
+        document.createElement("div");
+
+    novoCard.className = "card mat";
+
+    novoCard.innerHTML =
+        "<h2>" +
+        (emoji || "📚") +
+        " " +
+        nome +
+        "</h2>";
+
+    container.appendChild(novoCard);
+
+    document.getElementById("nomeMateria").value = "";
+    document.getElementById("emojiMateria").value = "";
+
+    fecharAdicionar();
+
+    criarBoletim();
+
+    alert("Matéria adicionada com sucesso! 🎉");
+
+}
+
+
+/* ===== EDITAR ===== */
+
 function ativarEdicao() {
+
     document.getElementById("conteudo").contentEditable = true;
 
     alert("Modo edição ativado! ✏️");
+
 }
 
-function salvar() {
-    const conteudo = document.getElementById("conteudo").innerHTML;
 
-    localStorage.setItem("mochila", conteudo);
+/* ===== CRIAR BOLETIM ===== */
 
-    document.getElementById("conteudo").contentEditable = false;
+function criarBoletim() {
 
-    alert("Salvo com sucesso! 💾");
+    const lista =
+        document.getElementById("listaNotas");
+
+    const materias =
+        document.querySelectorAll(".card h2");
+
+    lista.innerHTML = "";
+
+    materias.forEach((materia, index) => {
+
+        const nome = materia.innerText;
+
+        const item =
+            document.createElement("div");
+
+        item.className = "nota-item";
+
+        item.innerHTML = `
+            <strong>${nome}</strong>
+
+            <input
+                type="number"
+                min="0"
+                max="10"
+                step="0.1"
+                placeholder="Digite a nota"
+                class="nota"
+                data-materia="${nome}"
+                oninput="calcularMedia()"
+            >
+        `;
+
+        lista.appendChild(item);
+
+    });
+
 }
 
-window.onload = function() {
 
-    const salvo = localStorage.getItem("mochila");
+/* ===== CALCULAR MÉDIA ===== */
 
-    if (salvo) {
-        document.getElementById("conteudo").innerHTML = salvo;
+function calcularMedia() {
+
+    const notas =
+        document.querySelectorAll(".nota");
+
+    let soma = 0;
+    let quantidade = 0;
+
+    notas.forEach(input => {
+
+        const valor = parseFloat(input.value);
+
+        if (!isNaN(valor)) {
+
+            soma += valor;
+            quantidade++;
+
+        }
+
+    });
+
+    if (quantidade === 0) {
+
+        document.getElementById("mediaGeral").innerText = "0,0";
+
+        document.getElementById("situacao").innerText =
+            "Informe suas notas";
+
+        document.getElementById("situacao").className =
+            "situacao";
+
+        return;
+    }
+
+    const media = soma / quantidade;
+
+    document.getElementById("mediaGeral").innerText =
+        media.toFixed(1).replace(".", ",");
+
+    const situacao =
+        document.getElementById("situacao");
+
+    if (media >= 6) {
+
+        situacao.innerText = "🟢 Aprovado";
+        situacao.className = "situacao aprovado";
+
+    } else {
+
+        situacao.innerText = "🔴 Recuperação";
+        situacao.className = "situacao recuperacao";
+
     }
 
 }
+
+
+/* ===== SALVAR ===== */
+
+function salvarTudo() {
+
+    const conteudo =
+        document.getElementById("conteudo").innerHTML;
+
+    localStorage.setItem(
+        "mochila",
+        conteudo
+    );
+
+    const notas = [];
+
+    document.querySelectorAll(".nota").forEach(input => {
+
+        notas.push({
+            materia: input.dataset.materia,
+            nota: input.value
+        });
+
+    });
+
+    localStorage.setItem(
+        "notasMochila",
+        JSON.stringify(notas)
+    );
+
+    document.getElementById("conteudo").contentEditable = false;
+
+    alert("Tudo foi salvo com sucesso! 💾💕");
+
+}
+
+
+/* ===== CARREGAR ===== */
+
+window.onload = function() {
+
+    const salvo =
+        localStorage.getItem("mochila");
+
+    if (salvo) {
+
+        document.getElementById("conteudo").innerHTML =
+            salvo;
+
+    }
+
+    criarBoletim();
+
+    const notasSalvas =
+        JSON.parse(
+            localStorage.getItem("notasMochila")
+        );
+
+    if (notasSalvas) {
+
+        const campos =
+            document.querySelectorAll(".nota");
+
+        campos.forEach(campo => {
+
+            const encontrada =
+                notasSalvas.find(
+                    n => n.materia === campo.dataset.materia
+                );
+
+            if (encontrada) {
+
+                campo.value = encontrada.nota;
+
+            }
+
+        });
+
+    }
+
+    calcularMedia();
+
+};
 
 </script>
 
